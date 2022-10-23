@@ -1,3 +1,40 @@
 html{
     
 }
+.footer{
+    display: block;
+    bottom: 0;
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.card{
+    margin-top: 30px;
+}
+
+/* Extra small devices (phones, 600px and down) 
+@media only screen and (max-width: 600px) {...}
+
+/* Small devices (portrait tablets and large phones, 600px and up) 
+@media only screen and (min-width: 600px) {...}
+
+/* Medium devices (landscape tablets, 768px and up) 
+@media only screen and (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 33.33333333%;
+        width: 33.33333333%;
+      }
+}
+@media (min-width: 1200px) {
+    .col-md-4 {
+        flex: 0 0 33.33333333%;
+        width: 33.33333333%;
+      }
+}
+*/
