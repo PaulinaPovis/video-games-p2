@@ -1,3 +1,68 @@
-html{
-    
+form .invalid-field{
+    color: #dc3545;
+}
+
+.section{
+    padding-top: 50px
+}
+
+h2{
+    text-align: center;
+}
+
+.show{
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.user-detail {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-detail img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.avatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.avatars img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+    box-shadow: 2px 2px 6px rgba(0, 122, 153, 0.534);
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+    animation: avatarAnimation .5s  ease-in-out;
+}
+
+.avatars img:hover{
+    transform: translateY(-20px) scale(1.1);
+}
+
+
+@keyframes avatarAnimation{
+    0%{
+        transform: translateY(0) scale(.2);
+    }
+    100%{
+        transform: translateY(0) scale(1);
+    }
 }

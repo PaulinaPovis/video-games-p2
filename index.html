@@ -7,54 +7,60 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Grupo Pinpilinpauxa">
     <title>Pinpilinpauxa's VideoGame</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascripy" src="js/jquery.js"></script>
-    <script type="text/javascripy" src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.json"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
   </head>
-
   <body>
     <header class="p-3 text-bg-dark">
       <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-  
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-            <li><a href="rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
-          <!--  
-            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-          -->
-          </ul>
-
-          <div class="text-end">
-            <a href="#" type="a.button" class="btn btn-outline-light me-2">Login</a>
-            <a href="#" type="a.button" class="btn btn-warning">Sign-up</a>
+        <div class="row flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <div class="col-12 text-center">
+            <!-- <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+            </a> -->
+            <div class="user-detail" id="user-detail">
+              <span></span>
+              <img src="" alt="">
+            </div>
+            <nav class="mb-2">
+              <ul class="nav justify-content-center">
+                <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="/rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
+              </ul>
+            </nav>
+            <div class="text-center hide" id="menu-hide-on-login">
+              <a href="/login.html" type="a.button" class="btn btn-outline-light me-2">Login</a>
+              <a href="/signup.html" type="a.button" class="btn btn-warning">Sign-up</a>
+            </div>
+            <div class="text-center hide" id="menu-show-on-login">
+              <button class="btn btn-outline-light me-2" id="btn-logout">Logout</button>
+            </div>
           </div>
         </div>
       </div>
     </header>
-
-    <!--contenido de la pagina -->
-    
-
-    <div class="container">
-      <footer class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li><a href="login.html" class="nav-link px-2 text-secondary">Home</a></li>
-            <li><a href="rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
-          <!--  
-            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-          -->
-        </ul>
-        <p class="text-center text-muted">Pimpilinpauxa © 2022 P210 - Front End</p>
-      </footer>
-    </div>
-
+    <main>
+      <!--contenido de la pagina -->
+      <section class="section">
+        <h2>This is CaseRoom!</h2>
+      </section>
+    </main>
+    <footer class="py-3 my-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li><a href="/login.html" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="/rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
+              </ul>
+              <p class="text-center text-muted">Pinpilinpauxa © 2022 P210 - Front End</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/index.js" type="module"></script>
   </body>
 </html>
