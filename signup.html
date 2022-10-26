@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="VideoGame">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Grupo Pinpilinpauxa">
+    <title>Pinpilinpauxa's VideoGame</title>
+    <link rel="stylesheet" href="css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <header class="p-3 text-bg-dark">
+      <div class="container">
+        <div class="row flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <div class="col-12 text-center">
+            <!-- <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+            </a> -->
+            <nav class="mb-2">
+              <ul class="nav justify-content-center">
+                <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="/rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
+              </ul>
+            </nav>
+            <div class="text-center">
+              <a href="/login.html" type="a.button" class="btn btn-outline-light me-2">Login</a>
+              <a href="/signup.html" type="a.button" class="btn btn-warning">Sign-up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!--contenido de la pagina -->
+      <section class="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-8 mx-auto">
+              <form id="signup">
+                <h3 class="text-center mb-3">Choose your avatar!</h3>
+                <p class="text-center" id="avatar-output"></p>
+                <div class="avatars">
+                  <img src="img/avatar-1.jpg" alt="avatar" data-id="1">
+                  <img src="img/avatar-2.jpg" alt="avatar" data-id="2">
+                  <img src="img/avatar-3.jpg" alt="avatar" data-id="3">
+                  <img src="img/avatar-4.jpg" alt="avatar" data-id="4">
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control rounded-3" name="username" id="userName" placeholder="Username">
+                  <label for="userName">Username</label>
+                  <div class="invalid-field">
+                    <!-- Validación de errores -->
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control rounded-3" name="email" id="userEmail" placeholder="name@example.com">
+                  <label for="userEmail">Email address</label>
+                  <div class="invalid-field">
+                    <!-- Validación de errores -->
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input minlength="4" type="password" class="form-control rounded-3" name="pass" id="userPass" placeholder="Password">
+                  <label for="userPass">Password</label>
+                  <div class="invalid-field">
+                    <!-- Validación de errores -->
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control rounded-3" name="repeatPass" id="repeatPass" placeholder="Repeat Password">
+                  <label for="repeatPass">Repeat Password</label>
+                  <div class="invalid-field">
+                    <!-- Validación de errores -->
+                  </div>
+                </div>
+                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+                <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+                <hr class="my-4">
+                <small class="text-muted">Already have an account? <a href="/login.html">Login here</a></small>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="py-3 my-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li><a href="/login.html" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="/rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
+              </ul>
+              <p class="text-center text-muted">Pinpilinpauxa © 2022 P210 - Front End</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Script para recoger los datos del formulario -->
+    <script src="js/signup.js" type="module"></script>
+  </body>
+</html>
