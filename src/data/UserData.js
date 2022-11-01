@@ -7,28 +7,44 @@ class UserData {
       userName: "ppovis",
       email: "ppovis@uoc.edu",
       password: "password",
-      avatar: "AVATAR_1",
+      avatar: {
+          id: '1',
+          name: 'Furious',
+          message: 'Meaww!!'
+      },
     },
     {
       id:2,
       userName: "cory",
       email: "cbanciu@uoc.edu",
       password: "password",
-      avatar: "AVATAR_2",
+      avatar: {
+          id: '2',
+          name: 'Sweety',
+          message: 'Yummy!!'
+      }
     },
     {
       id:3,
       userName: "maider",
       email: "maider@uoc.edu",
       password: "password",
-      avatar: "AVATAR_3",
+      avatar: {
+          id: '3',
+          name: 'Blue',
+          message: 'Grrrrr!!'
+      }
     },
     {
       id:4,
       userName: "esther",
       email: "esther@uoc.edu",
       password: "password",
-      avatar: "AVATAR_4",
+      avatar: {
+          id: '4',
+          name: 'Draco',
+          message: 'We are gonna have fun!!'
+      }
     },
   ];
 }

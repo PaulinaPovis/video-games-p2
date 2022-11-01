@@ -5,7 +5,9 @@ import { WinStorage } from "./classes/WindowStorageManager.js";
  */
 const form = document.getElementById('signup');
 const avatars = document.querySelectorAll('.avatars img');
+const errorMessage = document.querySelector('.error-message');
 let selectedAvatar = undefined;
+
 const avatarPics = [
     {
         id: '1',
@@ -28,13 +30,8 @@ const avatarPics = [
         message: 'We are gonna have fun!!'
     }
 ];
-const avatarOutput = document.getElementById('avatar-output');
 
-//TODO: Eliminar cuando este la conexión a backend
-//Array de usuarios vacío
-let users = [];
-users = WinStorage.getParsed('users');
-//TODO: Fin
+const avatarOutput = document.getElementById('avatar-output');
 
 
 avatars.forEach(avatar => {
@@ -70,8 +67,7 @@ form.addEventListener('submit', (e) => {
         const data = {
             userName: username,
             email: email,
-            password: pass,
-            repeatPass: repeatPass
+            password: pass
         }
         // Si se selecciona una imagen para el avatar se asigna al objeto data
         if(!avatar){
@@ -81,30 +77,35 @@ form.addEventListener('submit', (e) => {
         else{
             Object.assign(data, {avatar: avatar});
         }
-        
-        console.log(data);
-        
-        //TODO: Eliminar cuando está la conexión con el backend
-        //Simulación de una BBDD guardando los datos en localstorage.
-        //Comprobamos si existe este dato en el localStorage
-        if(users === null || users === undefined){
-            //Si no existen guardamos directamente el Objeto data en el localStorage
-            WinStorage.set('users', [data]);
-            //window.location.reload();
-        }
-        else{
-            //Si existen los datos los recuperamos y los metemos en el array users
 
-            //Añadimos el nuevo usuario (Objeto data) al array users
-            users.push(data);
-            //Guardamos los nuevos datos en el localStorage
-            WinStorage.set('users', users);
-        }
-        //TODO: Fin
-
-        //Limpiamos los campos
-        document.getElementById("signup").reset();
-        window.location.href = '/login.html';
+        fetch('http://localhost:3000/api/users', {
+            method: "POST",
+            body: JSON.stringify(data)            
+        })
+        .then(data => data.json()) 
+        .then(response => {
+            if(response.mssg && response.mssg === 'The user already exists!'){
+                errorMessage.innerHTML = response.mssg;
+                errorMessage.classList.remove('hide');
+                errorMessage.classList.add('show');
+            }
+            else{
+                //Limpiamos los campos
+                document.getElementById("signup").reset();
+                //TODO: Eliminar cuando está la conexión con la BBDD
+                //Simulación de una BBDD guardando los datos en localstorage.
+                WinStorage.set('currentUser', response)
+                //TODO: Fin
+                window.location.href = '/login.html';
+            }
+            console.log('Respuesta front fetch', response)
+        })
+        .catch(err => {
+            errorMessage.innerHTML = err;
+            errorMessage.classList.remove('hide');
+            errorMessage.classList.add('show');
+            console.log('Error fetch front', err);
+        })
     }
     if(username === ''){
         invalidFields[0].innerHTML = 'Please enter your Username';
