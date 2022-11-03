@@ -1,0 +1,20 @@
+{
+  "name": "video-games-p2",
+  "version": "1.0.0",
+  "description": "rest api  for login , register sing up , etc",
+  "main": "app.js",
+  "scripts": {
+    "server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulinaPovis/video-games-p2.git"
+  },
+  "author": "Paulina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulinaPovis/video-games-p2/issues"
+  },
+  "homepage": "https://github.com/PaulinaPovis/video-games-p2#readme"
+  
+}
