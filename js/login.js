@@ -29,29 +29,23 @@ form.addEventListener('submit', (e) => {
             email: email,
             password: pass
         }
-        //TODO: Eliminar cuando está la conexión con el backend
-        //Simulación de una BBDD guardando los datos en localstorage.
-        let users = WinStorage.getParsed('users');
-        if(users !== null && users !== undefined){
-            
-            let userDB = users.find(user => user.email === email && user.password === pass)
-            if(userDB !== undefined){
-                WinStorage.set('currentUser', userDB)
-                window.location.href = '/rooms.html';
-            }
-        }
-        //TODO: Fin
 
-        //FIXME: Cuando este la conexión con el backend
-        // fetch('http://localhost:5000/register', {
-        //     method: "POST",
-        //     body: JSON.stringify(data),
-        //     headers: {"Content-type": "application/json; charset=UTF-8"}
-        // })
-        // .then(response => response.json()) 
-        // .then(json => console.log(json))
-        // .catch(err => console.log(err))
-        //FIXME: Fin
+        fetch('http://localhost:3000/api/login', {
+            method: "POST",
+            body: JSON.stringify(data)            
+        })
+        .then(data => data.json()) 
+        .then(response => {
+
+            //TODO: Eliminar cuando está la conexión con la BBDD
+            //Simulación de una BBDD guardando los datos en localstorage.
+            WinStorage.set('currentUser', response)
+            //TODO: Fin
+
+            window.location.href = '/rooms.html';
+            console.log('Respuesta front fetch', response)
+        })
+        .catch(err => console.log('Error fetch front', err))
     }
     if(email === ''){
         invalidFields[0].innerHTML = 'Please enter your email';

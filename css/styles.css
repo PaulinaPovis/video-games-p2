@@ -57,6 +57,9 @@ h2{
     transform: translateY(-20px) scale(1.1);
 }
 
+.error-message {
+    color: #dc3545;
+}
 
 @keyframes avatarAnimation{
     0%{
