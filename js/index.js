@@ -33,7 +33,10 @@ if(user !== null && user !== undefined){
             
                 const btnLogout = document.getElementById('btn-logout');
                 btnLogout.addEventListener('click', function(){
+                    // Borramos los datos del usuario en el localStorage
                     WinStorage.removeItem('currentUser');
+                    // Borramos los datos del room en el localStorage
+                    WinStorage.removeItem('roomSelected');
                     menuLogout.classList.add('hide');
                     menuHideOnLogin.classList.remove('hide');
                     userDetail.classList.add('hide');

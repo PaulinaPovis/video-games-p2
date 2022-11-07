@@ -5,6 +5,7 @@ import { WinStorage } from "./classes/WindowStorageManager.js";
  * Nodos del DOM
  */
 const form = document.getElementById('login');
+const errorMessage = document.querySelector('.error-message');
 
 /**
  * Envío formulario Login
@@ -37,15 +38,28 @@ form.addEventListener('submit', (e) => {
         .then(data => data.json()) 
         .then(response => {
 
-            //TODO: Eliminar cuando está la conexión con la BBDD
-            //Simulación de una BBDD guardando los datos en localstorage.
-            WinStorage.set('currentUser', response)
-            //TODO: Fin
+            if(response.mssg && response.mssg === 'The user does not exists! Please Sign-up!'){
+                errorMessage.innerHTML = response.mssg;
+                errorMessage.classList.remove('hide');
+                errorMessage.classList.add('show');
+            }
+            else {
+                //TODO: Eliminar cuando está la conexión con la BBDD
+                //Simulación de una BBDD guardando los datos en localstorage.
+                WinStorage.set('currentUser', response)
+                //TODO: Fin
 
-            window.location.href = '/rooms.html';
+                window.location.href = '/rooms.html';
+            }
+
             console.log('Respuesta front fetch', response)
         })
-        .catch(err => console.log('Error fetch front', err))
+        .catch(err => {
+            errorMessage.innerHTML = err;
+            errorMessage.classList.remove('hide');
+            errorMessage.classList.add('show');
+            console.log('Error fetch front', err);
+        })
     }
     if(email === ''){
         invalidFields[0].innerHTML = 'Please enter your email';

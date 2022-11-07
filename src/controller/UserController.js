@@ -88,6 +88,9 @@ class UserController {
             if(existe){
                 res.writeHead(200, { 'Content-Type': 'application/json' });
             }
+            else if(!existe){
+                res.end(JSON.stringify({mssg: "The user does not exists! Please Sign-up!"}));
+            }
             else 
                 res.writeHead(400, { 'Content-Type': 'application/json' });
 
