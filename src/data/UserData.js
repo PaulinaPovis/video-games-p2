@@ -48,5 +48,6 @@ class UserData {
     },
   ];
 }
+
 const userData = new UserData();
 module.exports = { userData };

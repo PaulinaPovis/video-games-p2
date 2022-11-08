@@ -87,11 +87,57 @@ class RoomController {
           }
 
     }
-
-    
-
     
 }
 
-const roomController = new RoomController();
-module.exports ={roomController};
+window.onload = function() {
+    if(window.localStorage != null) {
+        guardarRoom();
+    }
+}
+  
+function guardarRoom() {
+    if(window.localStorage != null) {
+        var name = getElementbyId("name");
+        var name = Name_object.value;
+        localStorage.setItem("name", name);
+        var userName = getElementbyId("userName");
+        var userName = userName_object.value;
+        localStorage.setItem("userName", userName);
+    }
+
+  const roomLocalStorage = window.localStorage;
+  const name = roomLocalStorage.getItem("name");
+
+}
+
+function handleDragStart(e) {
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('image', this.innerHTML);
+}
+
+function handleDragEnd(e) {
+    items.forEach(function (item) {
+        item.classList.remove('over');
+      });
+}
+  
+function handleDragOver(e) {
+    if (e.preventDefault) {
+        e.preventDefault();
+    }
+  return false;
+}
+
+function handleDrop(e) {
+    e.stopPropagation();
+    return false;
+}
+
+let items = document.querySelectorAll('.draggable');
+items.forEach(function(item) {
+  item.addEventListener('dragstart', handleDragStart);
+  item.addEventListener('dragover', handleDragOver);
+  item.addEventListener('dragend', handleDragEnd);
+  item.addEventListener('drop', handleDrop);
+});

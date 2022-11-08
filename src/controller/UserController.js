@@ -103,3 +103,24 @@ class UserController {
 
 const userController = new UserController();
 module.exports ={userController};
+
+window.onload = function() {
+    if(window.localStorage != null) {
+        guardarAvatar();
+    }
+}
+  
+function guardarAvatar() {
+    if(window.localStorage != null) {
+        var userName = getElementbyId("userName");
+        var userName = userName_object.value;
+        localStorage.setItem("userName", userName);
+        var avatar = getElementbyId("avatar");
+        var avatar = avatar_object.value;
+        localStorage.setItem("avatar", avatar);
+    }
+  
+    const avatarLocalStorage = window.localStorage;
+    const avatar = avatarLocalStorage.getItem("avatar");
+  
+  }
