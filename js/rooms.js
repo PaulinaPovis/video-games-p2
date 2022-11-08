@@ -44,5 +44,14 @@ function saveRoom(){
     });
 }
 
+//funcion asignar avatar escogido
+fetch('http://localhost:3000/api/users/' + user.id)
+        .then(data => data.json())
+        .then(response => {
+            
+            document.querySelector('#user-avatar img').src ='img/avatar-' + response.avatar.id + '.jpg'
+
+        })
+
 
     
