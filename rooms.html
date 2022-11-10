@@ -44,18 +44,24 @@
     </header>
     <main>
       <!--contenido de la pagina -->
+      
       <!-- Avatar escogido-->
-      <div class="avatars avatar-output" id="avatar-output">
-        <img src="" alt="" >        
-      </div>
+      
 
       <!--Salas -->
       <section class="section">
         <div class="container">
+          <div  id="draggableElement" draggable="true" ondragstart="drag(event)" >
+        
+            <div class="avatars avatar-output" id="avatar-output" >
+              <img src="" alt="" >        
+            </div>
+          </div> 
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
             <div class="col-12 col-md-6 mb-3">
               <div class="card btn">
                 <div class="card-header">
+                  <div id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
                   <img class="img-top img-fluid" alt="table1">
                 </div>
                 <div class="card-body">
@@ -114,5 +120,6 @@
   <!-- Script para recoger los datos del formulario -->
   <script src="js/index.js" type="module"></script>
   <script src="js/rooms.js" type="module"></script>
+  <script type="text/javascript" src="js/drag-and-drop.js"></script>
   </body>
 </html>
