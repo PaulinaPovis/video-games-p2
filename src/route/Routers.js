@@ -15,8 +15,8 @@ class Routers {
         { method: 'get', path: '/rooms', controller: roomController.getAllRooms },
         { method: 'get', path: '/rooms/:id', controller: roomController.getRoomById },
         { method: 'post', path: '/rooms', controller: roomController.createRoom },
-        { method: 'post', path: 'rooms/:id/users', controller: roomController.addUserOnRoom},
-        { method: 'delete', path: 'rooms/:id/users', controller: roomController.deleteUserOnRoom},
+        { method: 'post', path: '/rooms/:id/users', controller: roomController.addUserOnRoom},
+        { method: 'post', path: '/rooms/:id/delete-user', controller: roomController.deleteUserOnRoom},
         
 
     ]
