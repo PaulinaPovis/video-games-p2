@@ -5,10 +5,7 @@ class RoomData {
       name: "Room #1",
       description: "room some ...",
       image: 'img1',
-      players: [
-        { id: 1, userName: "diana" },
-        { id: 2, userName: "cory" },
-      ],
+      players: [],
     },
     {
       id: 2,
@@ -18,7 +15,6 @@ class RoomData {
       players: [
         {id: 3, userName: "maider"},
         {id: 4, userName: "esther"},
-    
       ],
     
     },
@@ -27,9 +23,7 @@ class RoomData {
       name: "Room #3",
       description: "room some ...",
       image: 'img3',
-      players: [
-        {id: 1, userName: "diana"}
-      ],
+      players: [],
     },
     {
       id: 4,
