@@ -46,25 +46,29 @@
       <!--contenido de la pagina -->
       
       <!-- Avatar escogido-->
-      
+      <div class="dropzone" style="border-color: black;">
+        <img id="draggableElement" draggable="true" src="/img/avatar-1.jpg">
+      </div>
+      <div class="dropzone" style="border-color: red;" > </div>
+
 
       <!--Salas -->
       <section class="section">
         <div class="container">
-          <div  id="draggableElement" draggable="true" ondragstart="drag(event)" >
+          
         
             <div class="avatars avatar-output" id="avatar-output" >
-              <img src="" alt="" >        
+              <img src="" alt="" id="draggableElement" draggable="true"  >        
             </div>
-          </div> 
+         
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
             <div class="col-12 col-md-6 mb-3">
               <div class="card btn">
-                <div class="card-header">
-                  <div id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+                <div class="card-header">                  
                   <img class="img-top img-fluid" alt="table1">
                 </div>
                 <div class="card-body">
+                  <div class="dropzone"></div>
                   <p class="card-text"></p>
                 </div>
               </div>
@@ -75,6 +79,7 @@
                     <img class="img-top img-fluid" alt="table2">
                   </div>
                   <div class="card-body">
+                    <div class="dropzone"></div>
                     <p class="card-text"></p>
                   </div>
                 </div>
@@ -85,6 +90,7 @@
                   <img class="img-top img-fluid" alt="table3">
                 </div>
                 <div class="card-body">
+                  <div class="dropzone"></div>
                   <p class="card-text"></p>
                 </div>
               </div>
@@ -95,6 +101,7 @@
                   <img class="img-top img-fluid" alt="table4">
                 </div>
                 <div class="card-body">
+                  <div class="dropzone"></div>
                   <p class="card-text"></p>
                 </div>
               </div>
@@ -120,6 +127,6 @@
   <!-- Script para recoger los datos del formulario -->
   <script src="js/index.js" type="module"></script>
   <script src="js/rooms.js" type="module"></script>
-  <script type="text/javascript" src="js/drag-and-drop.js"></script>
+  <script src="js/drag-and-drop.js" type="module"></script>
   </body>
 </html>

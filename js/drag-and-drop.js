@@ -1,14 +1,23 @@
-function allowDrop(ev) {
-    ev.preventDefault();
-  }
-  
-  function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    document.getElementById("draggableElement");
-  }
-  
-  function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById("draggableElement"));
-  }
+const draggableElement = document.querySelector('#draggableElement');
+
+draggableElement.addEventListener("dragstart", e =>{
+    e.dataTransfer.setData("text/plain", draggableElement.id);
+    
+});
+
+for (const dropZone of document.querySelectorAll(".dropzone")){
+    dropZone.addEventListener("dragover", e=> {
+        e.preventDefault();
+        dropZone.classList.add("dropzone-over");
+    })
+    dropZone.addEventListener("dragleave", e=>{
+        dropZone.classList.remove("dropzone-over");
+    })
+    dropZone.addEventListener("drop", e =>{
+        e.preventDefault();
+        const droppedElementId = e.dataTransfer.getData("text/plain");
+        const droppedElement = document.getElementById(droppedElementId);
+        dropZone.appendChild(droppedElement);
+        dropZone.classList.remove("dropzone-over");
+    })
+}

@@ -79,6 +79,24 @@ h2{
     object-fit: cover;
 }
 
+#draggableElement{
+    width: 100px;
+    height: 100px;
+    background-color: #dc3545;
+}
+.dropzone{
+    border: 8px solid black;
+    width: 200px; 
+    height: 200px; 
+    justify-content: center;
+
+ 
+}
+
+.dropzone-over{
+    opacity: 0.5;
+}
+
 @keyframes avatarAnimation{
     0%{
         transform: translateY(0) scale(.2);
