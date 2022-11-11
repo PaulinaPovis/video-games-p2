@@ -3,6 +3,7 @@ import { WinStorage } from "./classes/WindowStorageManager.js";
 const elementRooms = document.querySelectorAll('.card');
 const titleRooms = document.querySelectorAll('.card-text');
 const imageRooms = document.querySelectorAll('.card-header img');
+const errorMessage = document.querySelector('.error-message');
 
 
 fetch('http://localhost:3000/api/rooms')
@@ -33,11 +34,29 @@ function saveRoom(){
             })
                 .then(data => data.json()) 
                 .then(response => {
-                    console.log(response)
-                    const room = response.find(item => item.id === Number(element.id));
-                    WinStorage.set('roomSelected', room);
+
+                    if(response.mssg && response.mssg === 'The room is full! Please choose another room!' || response.mssg && response.mssg === 'You are already in a room, please exit the room!'){
+                        errorMessage.innerHTML = response.mssg;
+                        errorMessage.classList.remove('hide');
+                        errorMessage.classList.add('show');
+                    }
+                    else {
+                        errorMessage.innerHTML = "";
+                        console.log('Respuesta front fetch', response)
+
+                        console.log(response)
+                        const room = response.find(item => item.id === Number(element.id));
+                        WinStorage.set('roomSelected', room);
+                    }
+                    
                 })
-                .catch(err => console.error(err))
+                .catch(err => {
+                    console.error(err);
+                    errorMessage.innerHTML = err;
+                    errorMessage.classList.remove('hide');
+                    errorMessage.classList.add('show');
+                    console.log('Error fetch front', err);
+                })
             
         });
 

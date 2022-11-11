@@ -37,6 +37,13 @@ class Router {
 
     // Función privada
     async route(req, res) {
+        //add cors
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+        res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+
+
         const url = new URL(req.url, this._baseUrl)
         const method = req.method.toLowerCase()
         const route = await this._routes.find((route) => {

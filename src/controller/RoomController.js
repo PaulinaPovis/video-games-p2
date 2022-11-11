@@ -4,12 +4,7 @@ class RoomController {
 
 
     async getAllRooms(req,res){
-        //Necesarios para el control de error CORS
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Credentials", "true");
-        res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-        res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-
+       
         if (req) {
             console.log(req.body)
             res.writeHead(200, { 'Content-Type': 'application/json' })
@@ -21,13 +16,7 @@ class RoomController {
     }
 
     async getRoomById(req,res){
-        //Necesarios para el control de error CORS
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Credentials", "true");
-        res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-        res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-
-        if (req) {
+      if (req) {
             let id = req.params.id;
             console.log('id '+id);
             const room = roomData.rooms.find(u => u.id == id);
@@ -46,55 +35,52 @@ class RoomController {
           const room =  JSON.parse(req.body);
           // obtener un id randon 
           room.id=Math.floor(Math.random() * 1000000) + 10;
-          
-
 
         roomData.rooms.push(room);
 
         res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify(roomData.rooms));
         }
-      
-
-
     }
 
     async addUserOnRoom(req,res){
-        //Necesarios para el control de error CORS
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Credentials", "true");
-        res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-        res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-
         if (req) {
           const user =  JSON.parse(req.body);
           let idRoom = req.params.id;
-          console.log('idRoom '+idRoom);
+          var isAddUser = false;
+        //   roomData.rooms[0].players.push(user);
+            const selectedRoom = roomData.rooms.find(item => item.id === Number(idRoom));
 
-          roomData.rooms.forEach(r =>{
-                if(u => u.id == idRoom){
-                      r.players.push(user);  
+            roomData.rooms.forEach(room => {
+
+                if(room.players.some(item => item.id === Number(user.id))){
+                    isAddUser = true;
                 }
-          });
+                
+            });
 
-        res.writeHead(200, { 'Content-Type': 'application/json' })
-        res.end(JSON.stringify(roomData.rooms));
+            if(selectedRoom.players.length < 2 && !isAddUser){
+                selectedRoom.players.push(user);
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify(roomData.rooms));
+            }
+            else if(selectedRoom.players.length === 2){
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({mssg: "The room is full! Please choose another room!"}));
+            }
+            else{
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({mssg: "You are already in a room, please exit the room!"}));
+            }
         }
     
     }
 
-
     async deleteUserOnRoom(req,res){
-        //Necesarios para el control de error CORS
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Credentials", "true");
-        res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-        res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-        
         if (req) {
             const user =  JSON.parse(req.body);
             let idRoom = req.params.id;
-            console.log('idRoom '+idRoom);
+            console.log('idRoom delete '+idRoom);
   
             roomData.rooms.forEach(r =>{
                   if(u => u.id == idRoom){
