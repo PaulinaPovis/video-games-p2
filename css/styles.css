@@ -61,6 +61,24 @@ h2{
     color: #dc3545;
 }
 
+.user-avatar {
+    display:flex;
+    gap: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content:center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.user-avatar img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
 @keyframes avatarAnimation{
     0%{
         transform: translateY(0) scale(.2);

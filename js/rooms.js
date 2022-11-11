@@ -63,5 +63,20 @@ function saveRoom(){
     });
 }
 
+//funcion asignar avatar escogido
+let user = WinStorage.getParsed('currentUser');
+if(user !== null && user !== undefined){
+    fetch('http://localhost:3000/api/users/' + user.id)
+            .then(data => data.json())
+            .then(response => {
+                
+                document.querySelector('#avatar-output img').src ='img/avatar-' + response.avatar.id + '.jpg'
+            
+            })
+}
+else{
+    window.location.href = '/login.html';
+}
+
 
     

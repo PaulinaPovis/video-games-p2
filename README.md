@@ -4,4 +4,7 @@ Desarrollo de una aplicación web para gestionar los usuarios y seleccionar sala
 - El backend se ha desarrolado con nodejs, para poder ejecutarlo debemos ejecutar la siguiente linea en el terminal:
 `node app.js`
 - Despues de ejecutar el comando anterior la palicacion se ejecutara en httpp://localhost:8000
+- instalar node en el directorio: npm install
+- inicializar servidor front: npm run start
+- inicializar servidor back: npm run node-watch
 
