@@ -7,33 +7,33 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Grupo Pinpilinpauxa">
     <title>Pinpilinpauxa's VideoGame</title>
-    <link rel="stylesheet" href="css/libs/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script type="text/javascript" src="../js/libs/bootstrap.min.js"></script>
   </head>
   <body>
     <header class="p-3 text-bg-dark">
       <div class="container">
         <div class="row flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <div class="col-12 text-center">
-            <!-- <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap"></use>
-              </svg>
-            </a> -->
-            <div class="user-detail" id="user-detail">
-              <span></span>
-              <img src="" alt="">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="logo">
+                <img class="img-fluid" src="../img/LOGO.png" alt="logo">
+              </div>
+              <div class="user-detail" id="user-detail">
+                <span></span>
+                <img src="" alt="">
+              </div>
             </div>
             <nav class="mb-2">
               <ul class="nav justify-content-center">
-                <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
-                <li><a href="/rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
+                <li><a href="../index.html" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="../rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
               </ul>
             </nav>
             <div class="text-center" id="menu-hide-on-login">
-              <a href="/login.html" type="a.button" class="btn btn-outline-light me-2">Login</a>
-              <a href="/signup.html" type="a.button" class="btn btn-warning">Sign-up</a>
+              <a href="../login.html" type="a.button" class="btn btn-outline-light me-2">Login</a>
+              <a href="../signup.html" type="a.button" class="btn btn-warning">Sign-up</a>
             </div>
             <div class="text-center" id="menu-show-on-login">
               <button class="btn btn-outline-light me-2" id="btn-logout">Logout</button>
@@ -44,10 +44,11 @@
     </header>
     <main>
       <!--contenido de la pagina -->
-      <!-- Avatar escogido-->
-        <div class="user-detail" id="user-detail">
-            <img src="" alt="">
-        </div>  
+      <!--Titulo-->
+      <div class="container title-container" id="title">
+        <h1>Welcome to the Room 4</h1>        
+      </div>
+
 
       <!--Sala-->
       <section class="section">
@@ -59,16 +60,17 @@
         <div class="row">
           <div class="col-12">
               <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li><a href="/login.html" class="nav-link px-2 text-secondary">Home</a></li>
-                <li><a href="/rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
+                <li><a href="../login.html" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="../rooms.html" class="nav-link px-2 text-secondary">Rooms</a></li>
               </ul>
               <p class="text-center text-muted">Pinpilinpauxa © 2022 P210 - Front End</p>
           </div>
         </div>
       </div>
     </footer>
-  <!-- Script para recoger los datos del formulario -->
-  <script src="js/index.js" type="module"></script>
-  <script src="js/rooms.js" type="module"></script>
+    <!-- Script para recoger los datos del formulario -->
+  <script src="../js/libs/jquery.js"></script>
+  <script src="../js/index.js" type="module"></script>
+  <script src="../js/rooms.js" type="module"></script>
   </body>
 </html>
