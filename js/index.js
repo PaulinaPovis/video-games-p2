@@ -53,30 +53,43 @@ function createBtnLogout(){
 function doLogout(){
     const currentUser = WinStorage.getParsed('currentUser');
     const currentRoom = WinStorage.getParsed('roomSelected');
-    const data = {
-        id: currentUser.id,
-        userName: currentUser.userName
-    }
-    fetch('http://localhost:3000/api/rooms/' + currentRoom.id + '/delete-user', {
-        method: "POST",
-        body: JSON.stringify(data)            
-    })
-    .then(data => data.json()) 
-    .then(response => {
-        console.log(response)
-
+    if(!currentRoom){
         // Borramos los datos del usuario en el localStorage
         WinStorage.removeItem('currentUser');
-        // Borramos los datos del room en el localStorage
-        WinStorage.removeItem('roomSelected');
         menuLogout.classList.add('hide');
         menuHideOnLogin.classList.remove('hide');
         userDetail.classList.add('hide');
         userDetail.classList.remove('user-detail');
 
         window.location.href = '/login.html';
-    })
-    .catch((err) => console.log(err))
+    }
+    else {
+        const data = {
+            id: currentUser.id,
+            userName: currentUser.userName
+        }
+        fetch('http://localhost:3000/api/rooms/' + currentRoom.id + '/delete-user', {
+            method: "POST",
+            body: JSON.stringify(data)            
+        })
+        .then(data => data.json()) 
+        .then(response => {
+            console.log(response)
+
+            // Borramos los datos del usuario en el localStorage
+            WinStorage.removeItem('currentUser');
+            // Borramos los datos del room en el localStorage
+            WinStorage.removeItem('roomSelected');
+            menuLogout.classList.add('hide');
+            menuHideOnLogin.classList.remove('hide');
+            userDetail.classList.add('hide');
+            userDetail.classList.remove('user-detail');
+
+            window.location.href = '/login.html';
+        })
+        .catch((err) => console.log(err))
+    }
+    
 };
 
 
