@@ -16,14 +16,14 @@
       <div class="container">
         <div class="row flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <div class="col-12 text-center">
-            <!-- <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap"></use>
-              </svg>
-            </a> -->
-            <div class="user-detail" id="user-detail">
-              <span></span>
-              <img src="" alt="">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="logo">
+                <img class="img-fluid" src="img/LOGO.png" alt="logo">
+              </div>
+              <div class="user-detail" id="user-detail">
+                <span></span>
+                <img src="" alt="">
+              </div>
             </div>
             <nav class="mb-2">
               <ul class="nav justify-content-center">
@@ -46,9 +46,8 @@
       <!--contenido de la pagina -->
       <!-- Avatar escogido-->
       <div class="avatars avatar-output" id="avatar-output">
-        <img src="" alt="" >        
+        <img draggable="true" src="" alt="" width="70">        
       </div>
-
       <!--Salas -->
       <p class="error-message hide text-center"></p>
       <section class="section">
@@ -95,7 +94,7 @@
               </div>
             </div>
           </div>
-          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Go!</button>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" id="btn-go" type="button">Go!</button>
         </div>
       </section>
     </main>
@@ -112,7 +111,9 @@
         </div>
       </div>
     </footer>
+    <div class="alert-room"></div>
   <!-- Script para recoger los datos del formulario -->
+  <script src="js/libs/jquery.js"></script>
   <script src="js/index.js" type="module"></script>
   <script src="js/rooms.js" type="module"></script>
   </body>
