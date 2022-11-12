@@ -18,6 +18,36 @@ h2{
     display: none;
 }
 
+.logo {
+    max-width: 200px;
+}
+
+.cover-container {
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    position: relative;
+
+}
+
+.cover-container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #000000 0%, rgba(217, 217, 217, 0) 136.53%);
+} 
+
+.title-container {
+    position: relative;
+    z-index: 10;
+    color: white;
+}
+
 .user-detail {
     display: flex;
     gap: 15px;
@@ -57,8 +87,24 @@ h2{
     transform: translateY(-20px) scale(1.1);
 }
 
+.avatar-output img{
+    cursor: move;
+}
+
+.selected {
+    display: none;
+ }
+
 .error-message {
     color: #dc3545;
+}
+
+.infoText {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #05bbcf;
 }
 
 .user-avatar {
@@ -78,6 +124,26 @@ h2{
     border-radius: 100%;
     object-fit: cover;
 }
+
+.alert-room{
+    padding: 20px;
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px 30px 0 0;
+    max-width: 700px;
+    transition: transform 3s ease-in-out;
+}
+
+.success{
+    background-color: #62eba6;
+}
+
+.unsuccess{
+    background-color: #e9606e;
+}
+
 
 @keyframes avatarAnimation{
     0%{
