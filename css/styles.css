@@ -94,18 +94,17 @@ h2{
 .selected {
     display: none;
  }
- 
- .cloned {
-    opacity: 0.5;
-    
-    
- }
- .cloned.selected {
-    display: block;
- }
 
 .error-message {
     color: #dc3545;
+}
+
+.infoText {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #05bbcf;
 }
 
 .user-avatar {
