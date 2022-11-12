@@ -163,9 +163,5 @@ h2{
     }
 }
 .content-hidden {
-    opacity: 0;
-}
-.show-content{
-    opacity: 1;
-    transition: all 1s easy 3s;
+    display:none;
 }

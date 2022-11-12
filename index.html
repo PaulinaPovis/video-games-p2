@@ -49,7 +49,7 @@
     </div>
 
     <div class="container" width="200">
-      <div class="title-container content-hidden" id="animado">
+      <div class="title-container content-hidden" id="animado2">
         <div class="d-flex flex-wrap align-items-center justify-content-center">
           <div class="lead p-2">
             <a href="/login.html" class="btn btn-lg btn-secondary">Start!</a>
@@ -61,9 +61,7 @@
       </div>
     </div>
 
-    <div class="container" width="200">
-    <div id="animatedBall" class="animatedBall"></div>
-  </div>
+    
    
   </div>
 
@@ -75,9 +73,14 @@
     <p class="text-center text-muted">Pinilinpauxa © 2022 P210 - Front End</p>
 
     <script>
-      $('#animado').each(function(){ 
-          this.removeClass('content-hidden');})
-    
+      $(document).ready(function(){
+        $('#animado').each(function(){
+          $(this).fadeIn( 3000, function(){ /*animacion acabada*/});   
+        });
+      $('#animado2').each(function(){
+          $(this).fadeIn( 3000, function(){ /*animacion acabada*/});
+        });
+      });
     
         
     </script>
